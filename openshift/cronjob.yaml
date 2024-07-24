@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: example-cronjob
+spec:
+  schedule: "*/1 * * * *" 
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: example
+            image: busybox
+            command: ["sh", "-c", "echo Hello, OpenShift! && sleep 30"]
+          restartPolicy: Never
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  concurrencyPolicy: "Forbid"

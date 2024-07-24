@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: card-game-knative
+spec:
+  template:
+    metadata:
+      annotations:
+        # Set the target concurrency per pod
+        autoscaling.knative.dev/target: "80" 
+    spec:
+      containers:
+        - image: docker.io/darkilliant/cat-game:latest
+          ports:
+              - containerPort: 5000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+            limits:
+              memory: "256Mi"
+              cpu: "500m"

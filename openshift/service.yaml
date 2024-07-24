@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: exploding-kittens-service
+  labels:
+    app: exploding-kittens-app
+spec:
+  type: ClusterIP
+  selector:
+    app: exploding-kittens-app
+  #sessionAffinity: None
+  ports:
+    - name: service-port
+      port: 5000
+      protocol: TCP
+      targetPort: 5000

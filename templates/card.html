@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploding Kittens Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .card img {
+            max-width: 30%;
+            height: auto;
+        }
+        .hostname {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Exploding kitten game</h1>
+            <h2> Served by: {{ served_by }}</h2>
+            <img src="{{ card.image_url }}" alt="{{ card.name }}">
+        </div>
+    </div>
+</body>
+</html>

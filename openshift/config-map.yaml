@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+data:
+  color: green
+  config.yaml: |
+    name: paul
+    age: 33

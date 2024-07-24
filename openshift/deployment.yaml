@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exploding-kittens-app
+  labels:
+    app: exploding-kittens-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exploding-kittens-app
+  template:
+    metadata:
+      labels:
+        app: exploding-kittens-app
+    spec:
+      containers:
+      - name: exploding-kittens-app
+        image: docker.io/darkilliant/cat-game:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: "1"
+            memory: 1000Mi
+          requests:
+            cpu: 500m
+            memory: 100Mi
+            memory: 100Mi
